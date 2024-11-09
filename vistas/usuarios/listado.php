@@ -67,7 +67,7 @@
                 operacion: operacion
              },
             success: function(response) {
-                alert(response);
+               // alert(response);
                 $("#tabla_resultados").html(response);
             },
             error: function() {

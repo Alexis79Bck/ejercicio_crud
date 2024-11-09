@@ -5,16 +5,10 @@ include '../controladores/conexion.php';
 function listado()
 {
     $conn = conexionDB();
-    $sql = "SELECT nombres, apellidos, nombre_usuario, permiso_id, usuario_cedula FROM usuarios";
+    $sql = "SELECT nombre_usuario, permiso_id, usuario_cedula FROM usuarios";
     $resultados = $conn->query($sql);
-    if ($resultados->num_rows > 0) {
-        $conn->close();
-        return $resultados;    
-    }else{
-        $conn->close();
-    return "No existe registros que mostrar.";
-    }
-    
+    $conn->close();
+    return $resultados;    
 }
 
 function nuevo()
