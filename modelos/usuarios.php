@@ -7,8 +7,14 @@ function listado()
     $conn = conexionDB();
     $sql = "SELECT nombres, apellidos, nombre_usuario, permiso_id, usuario_cedula FROM usuarios";
     $resultados = $conn->query($sql);
-    $conn->close();
-    return $resultados;
+    if ($resultados->num_rows > 0) {
+        $conn->close();
+        return $resultados;    
+    }else{
+        $conn->close();
+    return "No existe registros que mostrar.";
+    }
+    
 }
 
 function nuevo()
@@ -119,7 +125,4 @@ function eliminar($id)
     return $resp;
 }
 
-function mostrarTabla()
-{
 
-}

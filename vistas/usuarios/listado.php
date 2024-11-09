@@ -48,6 +48,9 @@
         </div>
     </section>
    
+     <!-- Archivo Script de Bootstrap -->
+     <script src="../../js/bootstrap.bundle.min.js"></script>
+     <script src="../../js/jquery_3_6_0.js"></script>
     <script> 
     // $(document).ready(function() {
     // $("#body").load(function() {
@@ -55,7 +58,7 @@
         event.preventDefault();
         var operacion = "Listado";
 
-        //$("#tabla_resultado").html("Procesando..."); // Mostrar un mensaje de carga
+        $("#tabla_resultados").html("Procesando..."); // Mostrar un mensaje de carga
 
         $.ajax({
             url: "../../controladores/control_usuarios.php",
@@ -64,7 +67,7 @@
                 operacion: operacion
              },
             success: function(response) {
-                // alert(response);
+                alert(response);
                 $("#tabla_resultados").html(response);
             },
             error: function() {
@@ -100,8 +103,7 @@
 // });
 
 </script>
-    <!-- Archivo Script de Bootstrap -->
-    <script src="../../js/bootstrap.bundle.min.js"></script>
+   
 </body>
 
 </html>
