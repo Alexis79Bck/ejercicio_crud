@@ -2,7 +2,7 @@
     function conexionDB(){
         // Datos de conexión a la base de datos
         $servername = "127.0.0.1"; // Ej: localhost
-        $username = "test";
+        $username = "dba_testing";
         $password = "testing123";
         $dbname = "ejercicio_db";
 

@@ -5,7 +5,7 @@ include '../controladores/conexion.php';
 function listado()
 {
     $conn = conexionDB();
-    $sql = "SELECT nombre_usuario, permiso_id, usuario_cedula FROM usuarios";
+    $sql = "SELECT nombre_usuario, status, fecha_creacion, fecha_actualizacion, permiso_id FROM usuario";
     $resultados = $conn->query($sql);
     $conn->close();
     return $resultados;    
