@@ -5,10 +5,14 @@ include '../controladores/conexion.php';
 function listado()
 {
     $conn = conexionDB();
-    $sql = "SELECT nombre_usuario, status, fecha_creacion, fecha_actualizacion, permiso_id FROM usuario";
-    $resultados = $conn->query($sql);
+    $sql = "SELECT * FROM usuario";
+
+    $resultados = $conn->prepare($sql);
+    $resultados->execute();
+    $datosObtenidos = $resultados->get_result();  
+    $resultados->free_result();
     $conn->close();
-    return $resultados;    
+    return $datosObtenidos;
 }
 
 function nuevo()

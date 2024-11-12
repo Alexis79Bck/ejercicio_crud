@@ -1,9 +1,3 @@
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,23 +58,23 @@
                             <tr class="text-secondary fw-bold text-center">
                                 <th class="px-2">ID</th>
                                 <th class="px-2">Nombre de Usuario</th>
-                                <th class="px-2">Fecha de Creación</th>
                                 <th class="px-2">Estatus</th>
-                                <th class="px-2">Permiso</th>
+                                <th class="px-2">Fecha de Creación</th>
                                 <th class="px-2">Última Actualización</th>
+                                <th class="px-2">Permiso</th>
                                 <th class="px-2" colspan="3">Acciones</th>
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="font-monospace text-black">
+                        <tbody id="tabla_resultados">
+                            <!-- <tr class="font-monospace text-black">
                                 <td class="px-2 fw-bold text-center">1</td>
                                 <td class="px-2">John.Due123</td>
-                                <td class="px-2">01-04-2024</td>
                                 <td class="px-2 text-center">
                                     <h5><span class="badge text-bg-success">Activo</span></h5>
                                 </td>
-                                <td class="px-2">Nombre Permiso</td>
+                                <td class="px-2">Permiso</td>
+                                <td class="px-2">01-04-2024</td>
                                 <td class="px-2">11-06-2024</td>
                                 <td>
                                     <p data-placement="middle" data-toggle="tooltip" title="Detalles">
@@ -120,7 +114,7 @@
                                         </button>
                                     </p>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
 
@@ -139,9 +133,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             var operacion = "Listado";
+            var mensaje_procesando = `<tr class="font-monospace text-black">
+                                        <td colspan="9" class="px-2 fw-bold text-center">
+                                        Procesando...
+                                        </td>`;
 
-            $("#tabla_resultados").html("Procesando..."); // Mostrar un mensaje de carga
-
+            $("#tabla_resultados").html(mensaje_procesando); // Mostrar un mensaje de carga
+            console.log(operacion);
+            console.log(mensaje_procesando);
             $.ajax({
                 url: "../../controladores/control_usuarios.php",
                 method: "POST",
@@ -149,7 +148,7 @@
                     operacion: operacion
                 },
                 success: function(response) {
-                    // alert(response);
+                    alert(response);
                     $("#tabla_resultados").html(response);
                 },
                 error: function() {
