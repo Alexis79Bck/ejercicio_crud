@@ -24,7 +24,7 @@
                         <a class="nav-link" aria-current="page" href="vistas/usuarios/listado.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#!">Permisos</a>
+                        <a class="nav-link" aria-current="page" href="vistas/permisos/listado.php">Permisos</a>
                     </li>
                 </ul>
             </div>

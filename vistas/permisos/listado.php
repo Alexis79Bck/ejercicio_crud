@@ -26,10 +26,10 @@
                         <a class="nav-link" aria-current="page" href="../../index.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Usuarios</a>
+                        <a class="nav-link" aria-current="page" href="../usuarios/listado.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../permisos/listado.php">Permisos</a>
+                        <a class="nav-link" aria-current="page" href="#">Permisos</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
             <!-- Page Features-->
             <div class="row gx-lg-5">
                 <div class="text-center my-4">
-                    <span class="h2">Usuarios</span>
+                    <span class="h2">Permisos</span>
                 </div>
                 <br />
                 <div class="table-responsive">
@@ -59,43 +59,21 @@
                             </a>
                         </p>
                     </div>
-                    <table id="listaUsuarios" class="table table-bordered table-striped">
+                    <table id="listaPermisos" class="table table-bordered table-striped">
                         <thead>
                             <tr class="text-secondary fw-bold text-center">
                                 <th class="px-2">ID</th>
-                                <th class="px-2">Nombre de Usuario</th>
-                                <th class="px-2">Fecha de Creación</th>
-                                <th class="px-2">Estatus</th>
-                                <th class="px-2">Permiso</th>
-                                <th class="px-2">Última Actualización</th>
-                                <th class="px-2" colspan="3">Acciones</th>
+                                <th class="px-2">Nombre</th>
+                                <th class="px-2" colspan="2"></th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="font-monospace text-black">
                                 <td class="px-2 fw-bold text-center">1</td>
-                                <td class="px-2">John.Due123</td>
-                                <td class="px-2">01-04-2024</td>
-                                <td class="px-2 text-center">
-                                    <h5><span class="badge text-bg-success">Activo</span></h5>
-                                </td>
-                                <td class="px-2">Nombre Permiso</td>
-                                <td class="px-2">11-06-2024</td>
+                                <td class="px-2">Todos</td>
                                 <td>
-                                    <p data-placement="middle" data-toggle="tooltip" title="Detalles">
-                                        <a href="#" role="button" class="btn btn-secondary btn-xs">
-                                            <span class="text-white">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p data-placement="top" data-toggle="tooltip" title="Editar">
+                                    <span data-placement="top" data-toggle="tooltip" title="Editar">
                                         <a href="#" role="button" class="btn btn-primary btn-xs">
                                             <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
@@ -104,10 +82,9 @@
                                                 </svg>
                                             </span>
                                         </a>
-                                    </p>
-                                </td>
-                                <td>
-                                    <p data-placement="top" data-toggle="tooltip" title="Eliminar">
+                                    </span>
+                                
+                                    <span data-placement="top" data-toggle="tooltip" title="Eliminar">
                                         <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
                                             <span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
@@ -118,7 +95,7 @@
                                                 </svg>
                                             </span>
                                         </button>
-                                    </p>
+                                    </span>
                                 </td>
                             </tr>
                         </tbody>
