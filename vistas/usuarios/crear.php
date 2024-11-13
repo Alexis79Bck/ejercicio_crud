@@ -169,7 +169,7 @@
         // $("#body").load(function() {
         document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
-            var operacion = "Listado";
+            var operacion = "Crear";
 
             $("#tabla_resultados").html("Procesando..."); // Mostrar un mensaje de carga
 
@@ -177,11 +177,12 @@
                 url: "../../controladores/control_usuarios.php",
                 method: "POST",
                 data: {
-                    operacion: operacion
+                    operacion: operacion,
+                    datos: $(this).serialize()
                 },
                 success: function(response) {
-                    // alert(response);
-                    $("#tabla_resultados").html(response);
+                    alert(response);
+                    //$("#tabla_resultados").html(response);
                 },
                 error: function() {
                     $("#tabla_resultados").html("Error al procesar la solicitud");

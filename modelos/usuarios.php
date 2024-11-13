@@ -2,6 +2,7 @@
 
 include '../controladores/conexion.php';
 
+
 function listado()
 {
     $conn = conexionDB();
@@ -15,34 +16,25 @@ function listado()
     return $datosObtenidos;
 }
 
-function nuevo()
+function nuevo($body_request)
 {
-    $cedula = $_REQUEST['cedula'] ??  "";
-    $nombres = $_REQUEST['nombres'] ??  "";
-    $apellidos = $_REQUEST['apellidos'] ??  "";
-    $fecha_nacimiento = $_REQUEST['fecha_nacimiento'] ??  "";
-    $sexo = $_REQUEST['sexo'] ??  "";
-    $nacionalidad = $_REQUEST['nacionalidad'] ??  "";
-    $telefono = $_REQUEST['telefono'] ??  "";
-    $nombre_usuario = $_REQUEST['nombre_usuario'] ??  "";
-    $password = $_REQUEST['password'] ?? "";
-    $permiso_id = $_REQUEST['permiso_id'] ?? "";
-    $usuario_cedula = $_REQUEST['usuario_cedula'] ?? "";
+    $datos = json_decode($body_request, true);
+    var_dump($datos);
     $conn = conexionDB();
-    $sqlInfoUsuario = "INSERT INTO info_usuarios('cedula', 'nombres', 'apellidos', 'fecha_nacimiento', 'nacionalidad', 'sexo', 'telefono') VALUES ($cedula, $nombres, $apellidos, $fecha_nacimiento, $nacionalidad, $sexo, $telefono)";
-    $sqlUsuario = "INSERT INTO usuarios('nombre_usuario', 'password', 'permiso_id', 'usuario_cedula') VALUES ($nombre_usuario, $password, $permiso_id, $usuario_cedula)";
+    // $sqlInfoUsuario = "INSERT INTO info_usuarios('cedula', 'nombres', 'apellidos', 'fecha_nacimiento', 'nacionalidad', 'sexo', 'telefono') VALUES ($cedula, $nombres, $apellidos, $fecha_nacimiento, $nacionalidad, $sexo, $telefono)";
+    // $sqlUsuario = "INSERT INTO usuarios('nombre_usuario', 'password', 'permiso_id', 'usuario_cedula') VALUES ($nombre_usuario, $password, $permiso_id, $usuario_cedula)";
     
-    try {
-        $conn->query($sqlInfoUsuario);
-        $conn->query($sqlUsuario);
-        $resp = "Registro añadido exitosamente.";
-    } catch (mysqli_sql_exception $e) {
-        $resp = "Error en la base de datos: " . $e->getMessage();
-    } catch (Exception $e) {
-        $resp = "Error inesperado: " . $e->getMessage();
-    }
-    $conn->close();
-    return $resp;
+    // try {
+    //     $conn->query($sqlInfoUsuario);
+    //     $conn->query($sqlUsuario);
+    //     $resp = "Registro añadido exitosamente.";
+    // } catch (mysqli_sql_exception $e) {
+    //     $resp = "Error en la base de datos: " . $e->getMessage();
+    // } catch (Exception $e) {
+    //     $resp = "Error inesperado: " . $e->getMessage();
+    // }
+    // $conn->close();
+    // return $resp;
 }
 
 function mostrarDetalle($id)

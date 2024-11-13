@@ -1,11 +1,40 @@
 <?php
 include('../modelos/usuarios.php');
 
+function validarSolicitud() {
+    
+    if (!esMetodoPost($_SERVER['REQUEST_METHOD']) && !esMetodoGet($_SERVER['REQUEST_METHOD'])) {
+        http_response_code(405);
+        return 'Método HTTP no permitido';
+    }
+
+   
+    if (!isset($_REQUEST['operacion'])) {
+        http_response_code(400);
+        return 'No se puede procesar la operación..';
+    }
+
+    return;
+
+}
+
+function esMetodoPost($metodo)
+{
+    return $metodo === 'POST';
+}
+
+function esMetodoGet($metodo)
+{
+    return $metodo === 'GET';
+}
+
 function obtenerOperacion($operacion)
 {
     switch ($operacion) {
         case 'Listado':
             return generarTabla(listado());
+        case 'Crear':
+            return nuevo(file_get_contents('php://input'));
     }
 }
 function generarTabla($datos)
@@ -98,5 +127,7 @@ function generarEtiquetaEstatus($nombre_estatus)
                     </td>';
     }
 }
+
+validarSolicitud();
 
 obtenerOperacion($_REQUEST['operacion']);
